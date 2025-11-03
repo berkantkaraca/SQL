@@ -114,28 +114,43 @@
 --SELECT ProductName, UnitPrice, UnitsInStock, (SELECT CategoryName FROM Categories WHERE CategoryID = P.CategoryID )
 --FROM Products P
 
---Kargo şirketlerinin taşıdıkları sipariş sayıları.
-SELECT CompanyName, (SELECT COUNT(*) FROM Orders WHERE ShipVia = ShipperID GROUP BY ShipVia) 
-FROM Shippers
-Select (Select CompanyName From Shippers Where .ShipperID=ShipVia) as KargoSirketi, COUNT(*)
-From Orders
-Group By ShipVia
+----Kargo şirketlerinin taşıdıkları sipariş sayıları.
+--SELECT CompanyName, (SELECT COUNT(*) FROM Orders WHERE ShipVia = ShipperID GROUP BY ShipVia) 
+--FROM Shippers
+--Select (Select CompanyName From Shippers Where .ShipperID=ShipVia) as KargoSirketi, COUNT(*)
+--From Orders
+--Group By ShipVia
 
 
 
---JOIN: 2 VEYA DAHA FAZLA TABLOYU BİRLEŞTİRMEK İÇİN KULLANILIR
-SELECT P.ProductName, C.CategoryName, P.CategoryID
-FROM Products P INNER JOIN Categories C ON P.CategoryID = C.CategoryID
---INNER yazmayadabilirsin. defaultu inner ztn
---ikisinde de olan sütünlarda tablo isminden git
---Alias kullandıysan Products.CategoryID = Category.CategoryID şeklinde yazamazsın
-JOIN Suppliers S ON P.SuppliersID = S.SuppliersID -- bu kısım P ve C'den birleşmiş tabloyla işlem yapar.
+----JOIN: 2 VEYA DAHA FAZLA TABLOYU BİRLEŞTİRMEK İÇİN KULLANILIR
+--SELECT P.ProductName, C.CategoryName, P.CategoryID
+--FROM Products P INNER JOIN Categories C ON P.CategoryID = C.CategoryID
+----INNER yazmayadabilirsin. defaultu inner ztn
+----ikisinde de olan sütünlarda tablo isminden git
+----Alias kullandıysan Products.CategoryID = Category.CategoryID şeklinde yazamazsın
+--JOIN Suppliers S ON P.SuppliersID = S.SuppliersID -- bu kısım P ve C'den birleşmiş tabloyla işlem yapar.
 
 
---Hangi siparişi hangi çalışan tarafından, hangi müşteriye yapıldı
-SELECT O.OrderID, E.FirstName + ' ' + E.LastName, C.CustomerID
-FROM Orders O JOIN Employees E ON O.EmployeeID = E.EmployeeID
-JOIN Customers C ON C.CustomerID = O.CustomerID
+----Hangi siparişi hangi çalışan tarafından, hangi müşteriye yapıldı
+--SELECT O.OrderID, E.FirstName + ' ' + E.LastName, C.CustomerID
+--FROM Orders O JOIN Employees E ON O.EmployeeID = E.EmployeeID
+--JOIN Customers C ON C.CustomerID = O.CustomerID
+
+
+---- supp tablosundan CompanyName,ContactName
+---- prodyct ProductName, UnitPrice
+---- Categories CategoryName
+----CompanuName sutununa göre artan sırada sırala
+--SELECT S.CompanyName, S.ContactName, P.ProductName, P.UnitPrice, C.CategoryName
+--FROM Suppliers S JOIN Products P ON S.SupplierID = P.SupplierID
+--JOIN Categories C ON C.CategoryID = P.CategoryID
+--ORDER BY S.CompanyName ASC;
+
+--kategorilere göre toplam stok miktarlarını bul
+SELECT C.CategoryName, SUM(P.UnitsInStock) AS Stock
+FROM Products P JOIN Categories C ON P.CategoryID = C.CategoryID
+GROUP BY C.CategoryName
 
 
 
