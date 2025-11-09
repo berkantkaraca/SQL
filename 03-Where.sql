@@ -1,15 +1,3 @@
-
---SELECT: sql dilinde verileri sorgulamak için kullanılan temel bir komuttur. Select bize sonuç kümesini döner.
-SELECT * FROM Employees
-SELECT FirstName, LastName, Title FROM Employees
-SELECT Personel = TitleOfCourtesy + ' ' + FirstName + ' ' + LastName FROM Employees
-
-SELECT ProductName, UnitPrice, ROUND(UnitPrice * 1.10,2) AS [Zamli Fiyat] FROM Products
-SELECT ProductName, UnitPrice, ROUND(UnitPrice * 1.10,2) AS 'Zamli Fiyat' FROM Products
-
---Tekil kayıtları listeleme. tek bir kolon için DISTINCT kullanılır.
-SELECT DISTINCT City FROM Employees
-
 --WHERE:
 SELECT FirstName, LastName FROM Employees WHERE EmployeeID > 5
 SELECT FirstName, LastName, TitleOfCourtesy FROM Employees WHERE TitleOfCourtesy != 'Mr.' AND TitleOfCourtesy != 'Dr.'
@@ -60,34 +48,3 @@ SELECT ProductName FROM Products WHERE ProductName LIKE '%A[BCD]%'
 
 --Adının ilk iki harfi LA, LN, AA veya AN olanlar. Employee - FirstName
 SELECT FirstName, LastName, Title FROM Employees WHERE FirstName LIKE '[LA][AN]%'
-
---ORDER BY: sonuç kümesini sıralar
-SELECT FirstName, LastName FROM Employees ORDER BY FirstName ASC -- ASC: artan sıralama, default
-SELECT FirstName, LastName FROM Employees ORDER BY FirstName DESC -- DESC: azalan sıralama
-SELECT TitleOfCourtesy + ' ' + FirstName + ' ' + LastName AS PersonName FROM Employees ORDER BY PersonName
-SELECT FirstName AS Adi, LastName AS Soyadi, Title AS Unvan FROM Employees ORDER BY 3 DESC
-SELECT OrderID, OrderDate, CustomerID FROM Orders ORDER BY OrderDate ASC, CustomerID DESC
-
---TOP 
-SELECT TOP (50) ProductName FROM Products ORDER BY ProductName DESC
-SELECT TOP 25 PERCENT ProductName FROM Products ORDER BY ProductName
-
-SELECT TOP 12 WITH TIES ProductName, UnitPrice FROM Products ORDER BY UnitPrice --TIES: Eğer 12. sıradaki fiyatla aynı fiyata sahip ürünler varsa onları da getirir.
-
-SELECT ProductName, UnitPrice FROM Products ORDER BY UnitPrice 
-OFFSET 10 ROWS --Skip gibi 
-FETCH NEXT 5 ROWS ONLY --Take gibi
-
---Aggregate Functions
-SELECT COUNT(*) FROM Employees
-SELECT COUNT(EmployeeId), FirstName FROM Employees WHERE EmployeeID >= 4
-SELECT COUNT(Region) FROM Employees
-
-SELECT SUM(UnitPrice) FROM Products
-SELECT SUM(UnitPrice * Quantity) FROM [Order Details] WHERE OrderID = 10248
-
-SELECT AVG(UnitPrice) FROM Products WHERE CategoryID = 8
-
-SELECT MIN(UnitPrice) FROM Products 
-SELECT MAX(UnitPrice) FROM Products
-

@@ -3,7 +3,6 @@
 --Create Database: Yeni bir veritabanı oluşturur.
 CREATE DATABASE OrnekVeritabani;
 
-
 --Özelleşmiş bir veritabanı oluşturma
 CREATE DATABASE OrnekVeritabani2
 ON PRIMARY
@@ -29,7 +28,7 @@ LOG ON
 ALTER DATABASE OrnekVeritabani SET SINGLE_USER WITH ROLLBACK IMMEDIATE; --Veritabanını tek kullanıcı moduna alır ve mevcut işlemleri sonlandırır.
 DROP DATABASE OrnekVeritabani;
 
-
+-------------------------------------------------------------------------------------------------------------------------
 
 CREATE DATABASE PersonelDB;
 
@@ -52,11 +51,10 @@ DROP TABLE Employees;
 ALTER TABLE Employees 
 ADD BirthDate DATETIME; --Yeni bir sütun ekler
 
-
-ALTER TABLE Employees
+ALTER TABLE Employees 
 ALTER COLUMN BirthDate DATE; --Sütun veri tipini değiştirir
 
-ALTER TABLE Employees
+ALTER TABLE Employees 
 DROP COLUMN BirthDate; --Sütunu siler
 
 -- Kısıtlamalar ekleme
@@ -80,29 +78,8 @@ CREATE TABLE Orders
 );
 
 
-ALTER TABLE Employees
+ALTER TABLE Employees 
 ADD CONSTRAINT Email NOT NULL; --Mevcut sütuna NOT NULL kısıtlaması ekler
 
-ALTER TABLE Employees
+ALTER TABLE Employees 
 DROP CONSTRAINT Email; --Mevcut sütundan NOT NULL kısıtlamasını kaldırır
-
-
---Veri İşleme Dili (Data Manipulation Language - DML) Komutları
---Veri ekleme
-INSERT INTO Employees (Name, Email, Salary)
-VALUES ('Ahmet Yılmaz', 'ahmet.yilmaz@example.com', 5000.00);
-
---Toplu veri ekleme
-INSERT INTO Employees (Name, Email, Salary)
-VALUES 
-('Ayşe Demir', 'ayse.demir@example.com', 6000.00),
-('Mehmet Kaya', 'mehmet.kaya@example.com', 7000.00);
-
---Veri güncelleme
-UPDATE Employees
-SET Salary = Salary * 1.1 --Maaşı %10 artırır
-WHERE EmployeeID = 1; --EmployeeID'si 1 olan çalışan için
-
---Veri silme
-DELETE FROM Employees
-WHERE EmployeeID = 2; --EmployeeID'si 2 olan çalışanı siler
