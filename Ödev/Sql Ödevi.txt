@@ -1,0 +1,78 @@
+Senaryo
+Bir yazılım şirketinde veri tabanı geliştiricisi olarak çalışıyorsunuz. Şirket sizden, yeni kurulacak bir e-ticaret platformu için temel veri tabanı yapısını tasarlamanızı istiyor. Bu sistemde müşteriler, ürünler, siparişler ve ödemeler gibi temel kavramlar yer alacak. Amaç, bu yapıyı ilişkisel bir veri tabanı halinde modellemek ve test verileriyle doğrulamaktır.
+
+ 1. Gereksinimler
+a. Customers (Müşteriler)
+Müşteri adı, e-posta, telefon, adres ve kayıt tarihi bilgilerini tutacaktır.
+
+E-posta adresi sistemde benzersiz olmalıdır.
+
+Kayıt tarihi otomatik olarak eklenmelidir.
+
+b. Products (Ürünler)
+Ürün adı, kategori, fiyat, stok miktarı, açıklama ve eklenme tarihi bilgilerini tutacaktır.
+
+Fiyat ve stok bilgileri boş bırakılamaz.
+
+Ürün eklenme tarihi otomatik olarak kaydedilmelidir.
+
+c. Orders (Siparişler)
+Her sipariş bir müşteriye ait olmalıdır.
+
+Sipariş tarihi otomatik oluşturulmalı, toplam tutar ve durum bilgisi yer almalıdır.
+
+Sipariş durumu varsayılan olarak “Pending” (Beklemede) olmalıdır.
+
+d. OrderDetails (Sipariş Detayları)
+Her sipariş, bir veya birden fazla ürün içerebilir.
+
+Ürün miktarı ve birim fiyat bilgileri burada tutulmalıdır.
+
+Sipariş ile ürün arasında ilişki kurulmalıdır.
+
+e. Payments (Ödemeler)
+Her siparişin bir ödeme kaydı olmalıdır.
+
+Ödeme tarihi, yöntemi (kredi kartı, PayPal vb.) ve tutarı bulunmalıdır.
+
+Ödeme tarihi otomatik oluşturulmalıdır.
+
+ 2. İlişki Kuralları
+Customers ↔ Orders	1-N	Bir müşteri birçok sipariş verebilir.
+Orders ↔ OrderDetails	1-N	Bir sipariş birden fazla ürün içerebilir.
+Products ↔ OrderDetails	1-N	Bir ürün birçok siparişte yer alabilir.
+Orders ↔ Payments	1-1	Her siparişin tek bir ödeme kaydı olmalıdır.
+3. Test Verileri (Kurgusal Senaryo)
+Örnek Durumlar:
+
+John Doe adlı müşteri sistemde kayıt olur ve “Laptop” ile “Smartphone” satın alır.
+
+Jane Smith adlı müşteri “Smartphone” satın alır.
+
+İlk siparişin ödemesi kredi kartı ile, ikinci siparişin ödemesi PayPal ile yapılır.
+
+Ürün fiyatları ve stok bilgileri mantıklı şekilde belirlenir (örneğin Laptop = 1200, Smartphone = 800, vb.).
+
+4. Teslimat İçeriği
+Öğrencilerden beklenenler:
+
+SQL script dosyası (örneğin: ECommerceDB.sql)
+
+Veri tabanı oluşturma
+
+Tabloların tanımlanması
+
+İlişkilerin kurulması
+
+Test verilerinin eklenmesi
+
+5. Genişletme (Opsiyonel)
+İleri seviye öğrenciler aşağıdaki tabloları da ekleyebilir:
+
+Shipping: Kargo firması, takip numarası, teslim tarihi
+
+Discounts: Kupon kodu, indirim oranı, geçerlilik tarihi
+
+ProductReviews: Kullanıcı yorumları, puanlama sistemi
+
+UserRoles: Admin / Customer ayrımı
