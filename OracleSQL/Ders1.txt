@@ -1,0 +1,8 @@
+PK: tam sayı tanımlamak daha performanslıdır.
+FK: İlişkisel veri tutarlılığı sağlar.
+
+Insert işlemleri OLTP sistemlerinde yapılır, select işlemleri denormalize tasarlanan veri ambarlarından çekilir. Veri ambarları genellikle OLTP veritabanından gece gönderilir. T-1 veriyi görürler. Anlık görmezler.
+
+sql id ye göre index oluşturduğu için default olarak pk ya göre diskten okuduğu için o şekilde döner. Hangi sırada yazarsa o şekilde diskten okur
+
+
