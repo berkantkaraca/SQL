@@ -1,0 +1,12 @@
+PK: Tam sayı tanımlamak daha performanslıdır.
+FK: İlişkisel veri tutarlılığı sağlar.
+
+Insert işlemleri OLTP sistemlerinde yapılır, select işlemleri denormalize tasarlanan veri ambarlarından çekilir. Veri ambarları genellikle OLTP veritabanından gece gönderilir. T-1 veriyi görürler. Anlık görmezler.
+
+SQL id'ye göre index oluşturduğu için default olarakta pk'ya göre diskten okuduğu için o şekilde döner. Hangi sırada yazarsa o şekilde diskten okur.
+
+Mssql'de ondalıklı veritiplerinde decimal veya numeric kullan. Money ve small money hem deprecated hemde 4 haneye kadar gösterir.
+Float ve real bilimsel projede kullanmak için tasarlanmış, iş dünyasında kullanma.
+Mssql'de text ve ntext yerine varcharmax nvarcharmax kullan. varcharmax index açısından sıkıntılı. performans açısından sıkıntılı.
+
+composit index seçiciliği arttırır

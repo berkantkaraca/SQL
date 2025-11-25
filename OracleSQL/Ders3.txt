@@ -1,6 +1,0 @@
-Mssqlde ondalıklı veritiplerinde decimal veya numeric kullan. money ve small money hem deprecated hemde 4 haneye kadar gösterir
-float ve real bilimsel projede kullanmak için, iş dünyasında kullanma
-
-mssqlde text ve ntext yerine varcharmax nvarcharmax kullan. varcharmax index açısından sıkıntılı. performans açısından sıkıntılı.
-
-
