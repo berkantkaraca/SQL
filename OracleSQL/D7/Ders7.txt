@@ -1,5 +1,0 @@
-Ödev 1: Oracle high availablity çözümleri nelerdir? 1er cümle
-Ödev 2: Oracle built in exception nelerdir? 1er cümle
-Ödev 3: Hata çıktığında fix uygulanan prosedürler?
-Ödev 4: Yeni bir tane pl/sql kodu (hata yönetimi, döngü, )
-
