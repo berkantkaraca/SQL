@@ -37,7 +37,7 @@ where substr(lastname, 1, 3) = 'Kim';
     4- Execution Plan => Kodu Çalıştırma Planlarını Hazırlar
     5- Execute
 
-    İsimlendirilmiş nesnelerde bu planlar her zaman yapılmaz. Cache mekanizmasıyla kaydeddilir.
+    İsimlendirilmiş nesnelerde bu planlar her zaman yapılmaz. Cache mekanizmasıyla kaydedilir.
 
     SQL PLUS => script çalışmak için kullanılır. Extra kaynak tükenmeyeceği için burdan yap. (arayüzü vs yok bildiğin cmd)
 */

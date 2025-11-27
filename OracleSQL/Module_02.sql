@@ -28,7 +28,7 @@ Other symbols, such as /*, indicate comments that are ignored by the PL/SQL engi
 
 ANSWER: A noun is similar to the lexical unit called an identifier. A verb is similar to the lexical
 unit called a delimiter.Delimiters can simply be quotation marks, but others perform a function
-such as multiplication (*).You do “speak PL/SQL” to the Oracle server.
+such as multiplication (*).You do ï¿½speak PL/SQLï¿½ to the Oracle server.
 */
 
 
@@ -57,7 +57,7 @@ number. Finally, identifier student ID is illegal because it contains a space.
 */
 
 
---Hatal? identifier yaz?m?. & kullan?lmamal?. Üç de?er de ayn? girilmeli!!!
+--HatalÄ± identifier yazÄ±mÄ±. & kullanÄ±lmamalÄ±. AynÄ± deÄŸer de aynÄ± girilmeli!!!
 SET SERVEROUTPUT ON;
 DECLARE
 first&last_names VARCHAR2(30);
@@ -99,15 +99,15 @@ COALESCE(v_name, 'No Name'), and instead of v_dob, use COALESCE(v_dob,
 '01-Jan-1999').
 The COALESCE function compares each expression to NULL from the list of expressions and
 returns the value of the first non-null expression. In this case, it compares the v_name variable
-and ‘No Name’ string to NULL and returns the value of ‘No Name’.This is because the v_name
+and ï¿½No Nameï¿½ string to NULL and returns the value of ï¿½No Nameï¿½.This is because the v_name
 variable has not been initialized and as such is NULL.The COALESCE function is covered in
-Chapter 5,“Conditional Control: CASE Statements.”
+Chapter 5,ï¿½Conditional Control: CASE Statements.ï¿½
 Then run the same block, and you get the following:
 No Name born on 01-Jan-1999
 To make use of a variable, you must declare it in the declaration section of the PL/SQL block.You
 have to give it a name and state its datatype.You also have the option to give your variable an
 initial value. Note that if you do not assign a variable an initial value, it is NULL. It is also possible to
-constrain the declaration to “not null,” in which case you must assign an initial value.Variables
+constrain the declaration to ï¿½not null,ï¿½ in which case you must assign an initial value.Variables
 MUST FIRST BE DECLARED, AND THEN THEY CAN BE REFERENCED. PL/SQL DOES NOT ALLOW FORWARD REFERENCES.
 You can set the variable to be a constant, which means that it cannot change.
 */
@@ -131,7 +131,7 @@ would it say?
 
 ANSWER: In this example, you declare a variable called exception.Next, you initialize this
 variable and display its value on the screen.
-This example illustrates an invalid use of reserved words.To the PL/SQL compiler,“exception” is a
+This example illustrates an invalid use of reserved words.To the PL/SQL compiler,ï¿½exceptionï¿½ is a
 reserved word that denotes the beginning of the exception-handling section. As a result, it cannot
 be used to name a variable. Consider the huge error message that this tiny example produces:
 */

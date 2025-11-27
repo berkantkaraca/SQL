@@ -10,3 +10,10 @@ Float ve real bilimsel projede kullanmak için tasarlanmış, iş dünyasında k
 Mssql'de text ve ntext yerine varcharmax nvarcharmax kullan. varcharmax index açısından sıkıntılı. performans açısından sıkıntılı.
 
 composit index seçiciliği arttırır
+
+Cursordan dönen verilerde bir satırı record ile tutabiliriz. 
+
+Bütün data işlemleri bellekte yapılır.
+
+Phisical Read => diskteki veriyi okur ve belleğe alır işlem yapar
+Logical Read => data bellekte var diske gitmez

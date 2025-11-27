@@ -414,12 +414,12 @@ BEGIN
   AND section_id   = v_section_id;
 
   CASE
-    WHEN v_final_grade BETWEEN 90 AND 100 THEN v_letter_grade :=  'A'
-    WHEN v_final_grade BETWEEN 80 AND 89 THEN v_letter_grade :=  'B'
-    WHEN v_final_grade BETWEEN 70 AND 79 THEN v_letter_grade :=  'C'
-    WHEN v_final_grade BETWEEN 60 AND 69 THEN v_letter_grade :=  'D'
-    ELSE 'F'
-  END;
+    WHEN v_final_grade BETWEEN 90 AND 100 THEN v_letter_grade :=  'A';
+    WHEN v_final_grade BETWEEN 80 AND 89 THEN v_letter_grade :=  'B';
+    WHEN v_final_grade BETWEEN 70 AND 79 THEN v_letter_grade :=  'C';
+    WHEN v_final_grade BETWEEN 60 AND 69 THEN v_letter_grade :=  'D';
+    ELSE v_letter_grade := 'F';
+  END CASE;
 
   v_letter_grade := CASE
                       WHEN v_final_grade BETWEEN 90 AND 100 THEN 'A'
