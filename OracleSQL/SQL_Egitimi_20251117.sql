@@ -157,17 +157,17 @@ from product;
 select name, color, listprice, 
     case when listprice between 0 and 1000 then 'Ucuz'
          when listprice between 1000 and 2000 then 'Orta'
-         when listprice > 2000 then 'Pahalý'
-         else 'Diðer'
+         when listprice > 2000 then 'Pahalï¿½'
+         else 'Diï¿½er'
     end as Segment
 from product;
 
 -- urun renkleri turkce olarak gosterilsin
 select name, color, listprice, 
     case when color = 'Black' then 'Siyah'
-         when color = 'Red' then 'Kýrmýzý'
+         when color = 'Red' then 'Kï¿½rmï¿½zï¿½'
          when color = 'Blue' then 'Mavi'
-         else 'Diðer'
+         else 'Diï¿½er'
     end as Renk
 from product;
 
@@ -224,11 +224,11 @@ ORDER BY ................(6)
 
 */
 
--- Urun Adý, Renk, Liste Fiyatý
-select name as "Urun Adý", color as Renk, listprice as "Liste Fiyatý"
+-- Urun Adï¿½, Renk, Liste Fiyatï¿½
+select name as "Urun Adï¿½", color as Renk, listprice as "Liste Fiyatï¿½"
 from product
 where color = 'Black'
-order by "Liste Fiyatý" desc;
+order by "Liste Fiyatï¿½" desc;
 
 
 /* AGGREGATE FUNCTIONS
@@ -246,6 +246,10 @@ select color, COUNT(*) as Adet
 from product
 group by color;
 
+select color
+from product
+where color like 'B%'
+group by color;
 
 -- Her bir sehirde kac adet adres var. Cikan sonuclari siralayip en cok hangi sehirde adres var.
 select city, count(*) as Adet
@@ -253,7 +257,7 @@ from address
 group by city
 order by Adet desc;
 
--- Her rengin en pahali fiyatý, en ucuz fiyati, ortalama fiyatý gelsin
+-- Her rengin en pahali fiyatï¿½, en ucuz fiyati, ortalama fiyatï¿½ gelsin
 select color, MAX(listprice) as Enpahali, MIN(listprice) as Enucuz, AVG(listprice) as Ortalama
 from product
 group by color;
@@ -559,7 +563,7 @@ select MUSTERI_SEQ.CURRVAL from dual;
 select * from dual;
 
 insert into MUSTERI(MUSTERIID, ADSOYAD, KAYITTARIHI)
-values (MUSTERI_SEQ.NEXTVAL, 'Abdullah Altýntas', SYSDATE);
+values (MUSTERI_SEQ.NEXTVAL, 'Abdullah Altï¿½ntas', SYSDATE);
 
 select * from MUSTERI;
 
@@ -573,7 +577,7 @@ INSERT INTO musteri (
     adres
 ) VALUES (
     MUSTERI_SEQ.NEXTVAL,
-    'Barýþ Altýntas',
+    'Barï¿½ï¿½ Altï¿½ntas',
     SYSDATE,
     'Tuzla'
 );
@@ -581,7 +585,7 @@ INSERT INTO musteri (
 select * from MUSTERI;
 
 update MUSTERI
-set Adres = 'Halkalý'
+set Adres = 'Halkalï¿½'
 where MUSTERIID = 3;
 
 delete from MUSTERI
@@ -634,8 +638,8 @@ from
     select name, color, listprice, 
         case when listprice between 0 and 1000 then 'Ucuz'
              when listprice between 1000 and 2000 then 'Orta'
-             when listprice > 2000 then 'Pahalý'
-             else 'Diðer'
+             when listprice > 2000 then 'Pahalï¿½'
+             else 'Diï¿½er'
         end as Segment
     from product
     ) tbl
@@ -649,8 +653,8 @@ as
     select name, color, listprice, 
             case when listprice between 0 and 1000 then 'Ucuz'
                  when listprice between 1000 and 2000 then 'Orta'
-                 when listprice > 2000 then 'Pahalý'
-                 else 'Diðer'
+                 when listprice > 2000 then 'Pahalï¿½'
+                 else 'Diï¿½er'
             end as Segment
     from product
     )
@@ -710,7 +714,7 @@ from
     )
 where Parcano = 3;
 
--- Aylik cirolarýmýz toplam genel cironun yuzde kacini olusturuyor
+-- Aylik cirolarï¿½mï¿½z toplam genel cironun yuzde kacini olusturuyor
 create view vwAylikCiro
 as
     select EXTRACT(year from orderdate) as Yil, 
